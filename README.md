@@ -17,3 +17,11 @@ U201220621 Borda Anaya Manuel
 U201216844 Sanchez Salaza David
 gmail: dsanchezsalazar
 github: davlio
+
+- Pasos para ejecutar el aplicativo
+
+> bundle install
+> rake db:create
+> rake db:migrate
+> rake db:seed
+> rails server

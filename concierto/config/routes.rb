@@ -1,4 +1,24 @@
 Concierto::Application.routes.draw do
+  resources :conciertos
+  resources :grupo_musicas
+  resources :locals
+
+  get "usuario/login"
+  get "usuario/registro"
+
+  resources :usuario do
+    member do
+      get 'registro'
+      post 'create'
+    end    
+  end
+
+  resources :sessions, :only => [:new, :create, :destroy]
+  match 'login' => 'sessions#new'
+  match 'logout' => 'sessions#destroy'  
+  
+  root :to => 'home#index'  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,46 @@
+<h1>Registro de Usuario</h1>
+
+<%= form_for @usuario, :url => url_for(:controller => 'usuario', :action => 'create') do |f| %>
+
+    <div class="field">
+    <%= f.label :tipo_persona %><br />
+    <%= f.collection_select :tipo_persona_id, TipoPersona.all, :id, :nombre, :prompt => true %>
+  </div>
+  <div class="field">
+    <%= f.label :nombres %><br />
+    <%= f.text_field :nombres %>
+  </div>
+  <div class="field">
+    <%= f.label :apePaterno %><br />
+    <%= f.text_field :apePaterno %>
+  </div>
+  <div class="field">
+    <%= f.label :apeMaterno %><br />
+    <%= f.text_field :apeMaterno %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo %><br />
+    <%= f.collection_select :sexo_id, Sexo.all, :id, :nombre, :prompt => true %>
+  </div>  
+  <div class="field">
+    <%= f.label :tipo_documento %><br />
+    <%= f.collection_select :tipo_documento_id, TipoDocumento.all, :id, :nombre, :prompt => true %>
+  </div>
+  <div class="field">
+    <%= f.label :nroDocumento %><br />
+    <%= f.text_field :nroDocumento %>
+  </div>
+  <div class="field">
+    <%= f.label :correo %><br />
+    <%= f.text_field :correo %>
+  </div>    
+  <div class="field">
+    <%= f.label :contrasena %><br />
+    <%= f.text_field :contrasena %>
+  </div>    
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

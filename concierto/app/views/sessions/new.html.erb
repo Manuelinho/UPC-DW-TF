@@ -1,0 +1,23 @@
+<h1>Login</h1>
+
+<% if flash[:estado] == FALSE  %>
+	<p><%= flash[:alerta] %></p>
+<% end %>
+
+<%= form_for :usuario, :url => sessions_path do |f| %>
+
+  <div class="field">
+    <%= f.label :correo %><br />
+    <%= f.text_field :correo %>
+  </div>    
+
+  <div class="field">
+    <%= f.label :contrasena %><br />
+    <%= f.text_field :contrasena %>
+  </div>     
+  
+  <div class="actions">
+    <%= f.submit "Login" %>
+  </div>
+  
+<% end %>

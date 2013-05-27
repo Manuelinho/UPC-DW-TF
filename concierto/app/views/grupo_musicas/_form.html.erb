@@ -1,0 +1,36 @@
+<%= form_for(@grupo_musica) do |f| %>
+  <% if @grupo_musica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grupo_musica.errors.count, "error") %> prohibited this grupo_musica from being saved:</h2>
+
+      <ul>
+      <% @grupo_musica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :estilo_musica %><br />
+    <%= f.collection_select :estilo_musica_id, EstiloMusica.all, :id, :nombre, :prompt => true %>
+  </div>
+  <div class="field">
+    <%= f.label :alumno %><br />
+    <%= f.number_field :alumno %>
+  </div>
+
+<%= @grupo_musica.integrantes.count %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% for attribute in @grupo_musica.attributes.keys %>
+  <p><%= attribute.humanize %> <%= @grupo_musica.attributes[attribute].to_s %></p>
+<% end %>

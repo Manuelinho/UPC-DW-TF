@@ -1,0 +1,27 @@
+<h1>Listing grupo_musicas</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Estilo musica</th>
+    <th>Alumno</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @grupo_musicas.each do |grupo_musica| %>
+  <tr>
+    <td><%= grupo_musica.nombre %></td>
+    <td><%= grupo_musica.estilo_musica_id %></td>
+    <td><%= grupo_musica.alumno %></td>
+    <td><%= link_to 'Show', grupo_musica %></td>
+    <td><%= link_to 'Edit', edit_grupo_musica_path(grupo_musica) %></td>
+    <td><%= link_to 'Destroy', grupo_musica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Grupo musica', new_grupo_musica_path %>
